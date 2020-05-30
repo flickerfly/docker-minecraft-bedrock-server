@@ -1,0 +1,54 @@
+# These examples are provided with the intention of each file being applied to the pod individually as seen in this documentation:
+# https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#add-configmap-data-to-a-specific-path-in-the-volume
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-bedrock-configfiles
+  labels:
+    role: whitelist
+    app: bds
+data:
+  # These are just example files. You'll want to edit them on your own and then mount them as volumes into
+  # the appropriate location on the file system. 
+  whitelist.json: |-
+    [
+      {
+        "xuid": "f430dbb6-5d9a-444e-b542-e47329b2c5a0",
+        "name": "usernameA"
+      },
+      {
+        "xuid": "e5aa0f99-2727-4a11-981f-dded8b1cd032",
+        "name": "usernameB",
+        "ignoresPlayerLimit: true
+      }
+    ]
+  permissions.json: |-
+    [
+      {
+        "permission": "operator",
+        "xuid": "451298348"
+      },
+      {
+        "permission": "member",
+        "xuid": "52819329"
+      },
+      {
+        "permission": "visitor",
+        "xuid": "234114123"
+      }
+    ]
+  server.properties: |-
+    server-name=Dedicated Server
+    gamemode=survival
+    difficulty=easy
+    allow-cheats=false
+    max-players=10
+    online-mode=true
+    white-list=false
+    server-port=19132
+    server-portv6=19133
+    view-distance=10
+    tick-distance=4
+    player-idle-timeout=30
+    max-threads=8
