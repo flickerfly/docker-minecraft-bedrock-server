@@ -10,15 +10,16 @@ metadata:
     app: bds
 data:
   # These are just example files. You'll want to edit them on your own and then mount them as volumes into
-  # the appropriate location on the file system. 
+  # the appropriate location on the file system.
+  # Note: xuid can be found in the pod logs when a user attempts to log in. 
   whitelist.json: |-
     [
       {
-        "xuid": "f430dbb6-5d9a-444e-b542-e47329b2c5a0",
+        "xuid": "123456789",
         "name": "usernameA"
       },
       {
-        "xuid": "e5aa0f99-2727-4a11-981f-dded8b1cd032",
+        "xuid": "451298348",
         "name": "usernameB",
         "ignoresPlayerLimit: true
       }
